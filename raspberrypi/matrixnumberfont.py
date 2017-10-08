@@ -8,9 +8,6 @@
 import time
 from rgbmatrix import Adafruit_RGBmatrix
 
-
-
-
 class Font:
     def __init__(self):
         self.r = 0
@@ -18,16 +15,14 @@ class Font:
         self.b = 0
 
     def setColor(self,r,g,b):
-        self.r = int(r)#/16.0)
-        self.g = int(g)#16.0)
-        self.b = int(b)#16.0)
+        self.r = int(r)%255
+        self.g = int(g)%255
+        self.b = int(b)%255
     def drawNumber(self,matrix,x,y,num):
         if num == 0:
-            # zero
             matrix.SetPixel(x+1,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y  ,self.r,self.g,self.b)
-
             matrix.SetPixel(x  ,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x  ,y+2,self.r,self.g,self.b)
@@ -38,12 +33,11 @@ class Font:
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x  ,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
+
         elif num == 1:
-            #one
             matrix.SetPixel(x+2,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+1,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+1,self.r,self.g,self.b)
@@ -54,8 +48,8 @@ class Font:
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
+
         elif num ==2:
-            #two
             matrix.SetPixel(x+1,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y  ,self.r,self.g,self.b)
@@ -73,55 +67,41 @@ class Font:
             matrix.SetPixel(x+4,y+6,self.r,self.g,self.b)
 
         elif num == 3:
-            #three
             matrix.SetPixel(x+1,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y  ,self.r,self.g,self.b)
             matrix.SetPixel(x  ,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+2,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+3,self.r,self.g,self.b)
-           
-
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
- 
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
 
         elif num ==4:
-
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+1,self.r,self.g,self.b)
-
             matrix.SetPixel(x+1,y+2,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+2,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
-        
-            
             matrix.SetPixel(x+0,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+4,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+1,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
-
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
 
         elif num ==5:
-            # five
-            
             matrix.SetPixel(x+1,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
@@ -131,36 +111,32 @@ class Font:
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
+
         elif num == 6:
-            #six
             matrix.SetPixel(x+1,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+0,y+2,self.r,self.g,self.b)
             matrix.SetPixel(x+0,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
-             
             matrix.SetPixel(x+0,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
+
         elif num == 7:
-            #seven 
             matrix.SetPixel(x+1,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
@@ -173,48 +149,38 @@ class Font:
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+6,self.r,self.g,self.b)
+
         elif num == 8:
             matrix.SetPixel(x+1,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+1,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+2,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+2,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+6,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+6,self.r,self.g,self.b)
-
 
         elif num == 9:
             matrix.SetPixel(x+1,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+0,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+0,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+1,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+1,self.r,self.g,self.b)
-
             matrix.SetPixel(x+0,y+2,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+2,self.r,self.g,self.b)
-            
             matrix.SetPixel(x+1,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+2,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+3,y+3,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+3,self.r,self.g,self.b)
-
             matrix.SetPixel(x+4,y+4,self.r,self.g,self.b)
             matrix.SetPixel(x+0,y+5,self.r,self.g,self.b)
             matrix.SetPixel(x+4,y+5,self.r,self.g,self.b)
